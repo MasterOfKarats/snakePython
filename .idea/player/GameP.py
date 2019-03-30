@@ -33,6 +33,7 @@ class Game:
     def loop(self):
         global changeX, changeY, score
         run = True
+        Apple.Apple.randomize(Apple)
         #game loop
         while run:
             #runs the game
