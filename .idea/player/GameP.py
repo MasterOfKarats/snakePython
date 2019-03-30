@@ -1,5 +1,7 @@
 import pygame
 import Snake, Apple
+import sys
+pygame.font.init()
 pygame.init()
 
 pos = []
@@ -18,9 +20,12 @@ player = 0
 win = pygame.display.set_mode((screenHeight, screenWidth))
 pygame.display.set_caption("Snake Game")
 clock = pygame.time.Clock()
+pygame.font.init()
+myfont = pygame.font.SysFont('Comic Sans MS', 30)
+
 
 class Game:
-    def __init__(self, display):
+    def _init_(self, display):
         self.display = win
     def loop(self):
         global changeX, changeY, score
@@ -48,17 +53,19 @@ class Game:
                 #Moves snake and checks for collision
                 Snake.Snake.moveSnake(Snake, changeX, changeY)
                 Snake.Snake.check_Collision(Snake, x_pos , y_pos)
-                win.fill((0, 0, 0))
                 #draws apple and snake
                 snake_rect = Snake.Snake.draw(Snake, win)
                 apple_rect = Apple.Apple.draw(Apple, win)
+                win.fill((0, 0, 0))
                 #Snake eats apple
-                if Snake.Snake.getX(Snake) ==Apple.Apple.getX(Apple) or Snake.Snake.getY(Snake) == Apple.Apple.getY(Apple):
+                if apple_rect.colliderect(snake_rect):
                     Apple.Apple.randomize(Apple)
-                    score += 1
+                    Snake.score += 1
+                    score = Snake.score
                     print(score)
-                    app = Apple.Apple.draw(Apple,win)
 
+
+        pygame.display.update()
         pygame.quit()
         clock.tick(30)
 

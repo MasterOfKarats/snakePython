@@ -7,10 +7,10 @@ x_pos = 0
 y_pos = 0
 
 class Apple:
-    def __init__(self):
+    def _init_(self):
         self.x_pos = x_pos
         self.y_pos = x_pos
-        self.display = win
+        self.display = display
         self.randomize()
     def randomize(self):
         GameWidth = 480
@@ -23,6 +23,6 @@ class Apple:
         return self.y_pos
 
     def draw(self, display):
-        pygame.draw.rect(display, (0, 100, 0), (self.x_pos,self.y_pos,apple_Width,apple_Height))
         apple = pygame.draw.rect(display, (0, 100, 0), (self.x_pos,self.y_pos,apple_Width,apple_Height))
         pygame.display.update()
+        return apple
