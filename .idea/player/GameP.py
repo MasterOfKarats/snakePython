@@ -33,6 +33,7 @@ class Game:
     def loop(self):
         global changeX, changeY, score
         run = True
+        #randomizes the location of apple before game starts
         Apple.Apple.randomize(Apple)
         #game loop
         while run:
@@ -70,10 +71,8 @@ class Game:
                 text = font.render("Score "+str(score), True, (74, 88, 112))
                 win.blit(text, (20 , 450 ))
                 win.blit(title, (150,5))
-
         pygame.display.update()
         pygame.quit()
-        clock.tick(30)
-
+        clock.tick(15)
 
 Game.loop(Game)
