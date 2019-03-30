@@ -23,6 +23,6 @@ class Apple:
         return self.y_pos
 
     def draw(self, display):
-        apple = pygame.draw.rect(display, (0, 100, 0), (self.x_pos,self.y_pos,apple_Width,apple_Height))
+        apple = pygame.draw.rect(display, (106, 170, 112), (self.x_pos,self.y_pos,apple_Width,apple_Height))
         pygame.display.update()
         return apple

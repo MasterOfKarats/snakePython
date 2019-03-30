@@ -22,7 +22,7 @@ pygame.display.set_caption("Snake Game")
 clock = pygame.time.Clock()
 pygame.font.init()
 font = pygame.font.SysFont("comicsansms", 30)
-title = font.render("Snake Game", True, (0, 128, 0))
+title = font.render("Snake Game", True, (74, 88, 112))
 
 
 
@@ -59,17 +59,16 @@ class Game:
                 #draws apple and snake
                 snake_rect = Snake.Snake.draw(Snake, win)
                 apple_rect = Apple.Apple.draw(Apple, win)
-                win.fill((0, 0, 0))
+                win.fill((182, 175, 183))
                 #Snake eats apple
                 if apple_rect.colliderect(snake_rect):
                     Apple.Apple.randomize(Apple)
                     Snake.score += 1
                     score = Snake.score
                     print(score)
-                text = font.render("Score "+str(score), True, (0, 128, 0))
+                text = font.render("Score "+str(score), True, (74, 88, 112))
                 win.blit(text, (20 , 450 ))
                 win.blit(title, (150,5))
-
 
         pygame.display.update()
         pygame.quit()
