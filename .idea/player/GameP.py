@@ -21,7 +21,10 @@ win = pygame.display.set_mode((screenHeight, screenWidth))
 pygame.display.set_caption("Snake Game")
 clock = pygame.time.Clock()
 pygame.font.init()
-myfont = pygame.font.SysFont('Comic Sans MS', 30)
+font = pygame.font.SysFont("comicsansms", 30)
+title = font.render("Snake Game", True, (0, 128, 0))
+
+
 
 
 class Game:
@@ -63,6 +66,9 @@ class Game:
                     Snake.score += 1
                     score = Snake.score
                     print(score)
+                text = font.render("Score "+str(score), True, (0, 128, 0))
+                win.blit(text, (20 , 450 ))
+                win.blit(title, (150,5))
 
 
         pygame.display.update()

@@ -9,7 +9,7 @@ y_pos = 0
 class Apple:
     def _init_(self):
         self.x_pos = x_pos
-        self.y_pos = x_pos
+        self.y_pos = y_pos
         self.display = display
         self.randomize()
     def randomize(self):
