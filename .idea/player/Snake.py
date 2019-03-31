@@ -25,7 +25,7 @@ class Snake:
         return rectangle
 
     def moveSnake(self, changeX, changeY):
-        self.pos.append((self.x_pos,self.y_pos))
+        #self.pos.append((self.x_pos,self.y_pos))
         self.x_pos += changeX
         self.y_pos += changeY
 
@@ -43,12 +43,12 @@ class Snake:
         return self.pos[0]
     def tailPos(self):
         pass
-
     def getX(self):
         return self.x_pos
     def getY(self):
         return self.y_pos
-
+    def collisionWithSelf(self):
+        pass
     def check_Collision(self, startX, startY):
         GameWidth = 500
         collision = False
