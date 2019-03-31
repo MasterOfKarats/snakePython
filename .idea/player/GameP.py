@@ -6,7 +6,8 @@ pygame.init()
 
 pos = []
 score = 0
-speed = 10
+speedX = 10
+speedY = 10
 snakeHeight = 20
 snakeWidth = 20
 changeX = 0
@@ -28,7 +29,7 @@ title = font.render("Snake Game", True, (74, 88, 112))
 
 
 class Game:
-    def _init_(self, display):
+    def __init__(self, display):
         self.display = win
     def loop(self):
         global changeX, changeY, score, speed
@@ -40,21 +41,21 @@ class Game:
             #runs the game
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    run =False
+                    run = False
                 #moves the snake which is the red squarw
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_LEFT:
-                        changeX -= speed
+                        changeX -= speedX
                         changeY = 0
                     elif event.key == pygame.K_RIGHT:
-                        changeX += speed
+                        changeX += speedX
                         changeY = 0
                     elif event.key == pygame.K_UP:
                         changeX = 0
-                        changeY -= speed
+                        changeY -= speedY
                     elif event.key == pygame.K_DOWN:
                         changeX = 0
-                        changeY += speed
+                        changeY += speedY
                 #Moves snake and checks for collision
                 Snake.Snake.moveSnake(Snake, changeX, changeY)
                 Snake.Snake.check_Collision(Snake, x_pos , y_pos)
@@ -76,7 +77,7 @@ class Game:
                 win.blit(text, (20 , 450 ))
                 win.blit(title, (150,5))
 
-        pygame.display.update()
+
         pygame.quit()
         clock.tick(30)
 
