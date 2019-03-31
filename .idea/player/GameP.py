@@ -21,6 +21,12 @@ player = 0
 win = pygame.display.set_mode((screenHeight, screenWidth))
 pygame.display.set_caption("Snake Game")
 clock = pygame.time.Clock()
+flag = True
+pygame.time.delay(50)
+
+
+clock.tick()
+
 pygame.font.init()
 font = pygame.font.SysFont("comicsansms", 30)
 title = font.render("Snake Game", True, (74, 88, 112))
@@ -29,20 +35,20 @@ title = font.render("Snake Game", True, (74, 88, 112))
 
 
 class Game:
-    def __init__(self, display):
-        self.display = win
     def loop(self):
+
         global changeX, changeY, score, speed
         run = True
         #randomizes the location of apple before game starts
         Apple.Apple.randomize(Apple)
         #game loop
+
         while run:
             #runs the game
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     run = False
-                #moves the snake which is the red squarw
+                #moves the snake which is the red square
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_LEFT:
                         changeX -= speedX
@@ -56,9 +62,13 @@ class Game:
                     elif event.key == pygame.K_DOWN:
                         changeX = 0
                         changeY += speedY
+
+
                 #Moves snake and checks for collision
                 Snake.Snake.moveSnake(Snake, changeX, changeY)
                 Snake.Snake.check_Collision(Snake, x_pos , y_pos)
+
+
                 #draws apple and snake
                 snake_rect = Snake.Snake.draw(Snake, win)
                 apple_rect = Apple.Apple.draw(Apple, win)
@@ -76,6 +86,12 @@ class Game:
                 text = font.render("Score "+str(score), True, (74, 88, 112))
                 win.blit(text, (20 , 450 ))
                 win.blit(title, (150,5))
+        while flag:
+            for event in pygame.event.get():
+                if event.type == pygame.KEYRIGHT:
+                    pygame.time.delay(50)
+                    clock.tick(5)
+        redrawWindow(win)
 
 
         pygame.quit()
