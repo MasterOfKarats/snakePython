@@ -11,7 +11,7 @@ score = 0
 y_pos = 250
 
 class Snake:
-    def _init_(self, display):
+    def _init_(self):
         self.x_pos = x_pos
         self.y_pos = y_pos
         self.snakeWidth = snakeWidth

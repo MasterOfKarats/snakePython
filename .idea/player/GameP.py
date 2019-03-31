@@ -26,10 +26,8 @@ font = pygame.font.SysFont("comicsansms", 30)
 title = font.render("Snake Game", True, (74, 88, 112))
 
 
-
-
 class Game:
-    def __init__(self, display):
+    def _init_(self, display):
         self.display = win
     def loop(self):
         global changeX, changeY, score, speed
