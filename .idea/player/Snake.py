@@ -7,23 +7,17 @@ import random
 snakeHeight = 20
 snakeWidth = 20
 x_pos = 250
-y_pos = 250
 score = 0
+y_pos = 250
 
 class Snake:
-
-    def _init_(self, display,length):
-        self.length = length
-        for i in range(0, length):
-            self.x_pos.append(0)
-            self.y_pos.append(0)
+    def _init_(self):
         self.x_pos = x_pos
         self.y_pos = y_pos
         self.snakeWidth = snakeWidth
         self.snakeHeight = snakeHeight
         self.display = win
         Snake.check_Collision()
-
     def draw(self, display):
         #197, 164, 232
         rectangle = pygame.draw.rect(display, (150, 131, 170), (self.x_pos,self.y_pos,self.snakeWidth,self.snakeHeight))
@@ -39,7 +33,6 @@ class Snake:
         return self.x_pos
     def getY(self):
         return self.y_pos
-
     def check_Collision(self, startX, startY):
         GameWidth = 500
         GameHeight = 500
