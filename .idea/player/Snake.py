@@ -2,8 +2,6 @@ import pygame
 import Apple
 import random
 
-
-
 snakeHeight = 20
 snakeWidth = 20
 x_pos = 250
@@ -11,7 +9,7 @@ score = 0
 y_pos = 250
 
 class Snake:
-    def _init_(self, display):
+    def __init__(self, display):
         self.x_pos = x_pos
         self.y_pos = y_pos
         self.snakeWidth = snakeWidth
@@ -27,7 +25,6 @@ class Snake:
         self.y_pos += changeY
     def grow(self):
         self.snakeWidth += 10
-
     def getX(self):
         return self.x_pos
     def getY(self):

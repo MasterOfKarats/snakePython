@@ -25,7 +25,7 @@ myfont = pygame.font.SysFont('Comic Sans MS', 30)
 
 
 class Game:
-    def _init_(self, display):
+    def __init__(self, display):
         self.display = win
     def loop(self):
         global changeX, changeY, score
@@ -35,7 +35,7 @@ class Game:
             #runs the game
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    run =False
+                    run = False
                 #moves the snake which is the red squarw
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_LEFT:
@@ -65,7 +65,7 @@ class Game:
                     print(score)
 
 
-        pygame.display.update()
+
         pygame.quit()
         clock.tick(30)
 
