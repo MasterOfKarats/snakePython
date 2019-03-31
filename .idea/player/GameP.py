@@ -61,18 +61,21 @@ class Game:
                 #draws apple and snake
                 snake_rect = Snake.Snake.draw(Snake, win)
                 apple_rect = Apple.Apple.draw(Apple, win)
+                snake_Body = Snake.Snake.drawBody(Snake, win)
+                Snake.Snake.grow(Snake,score)
+
                 win.fill((182, 175, 183))
                 #Snake eats apple
                 if apple_rect.colliderect(snake_rect):
                     Apple.Apple.randomize(Apple)
                     Snake.score += 1
                     score = Snake.score
-                    print(score)
                 text = font.render("Score "+str(score), True, (74, 88, 112))
                 win.blit(text, (20 , 450 ))
                 win.blit(title, (150,5))
+
         pygame.display.update()
         pygame.quit()
-        clock.tick(15)
+        clock.tick(30)
 
 Game.loop(Game)
