@@ -19,7 +19,8 @@ class Snake:
         self.display = win
         Snake.check_Collision()
     def draw(self, display):
-        rectangle = pygame.draw.rect(display, (255,0,0), (self.x_pos,self.y_pos,self.snakeWidth,self.snakeHeight))
+        #197, 164, 232
+        rectangle = pygame.draw.rect(display, (150, 131, 170), (self.x_pos,self.y_pos,self.snakeWidth,self.snakeHeight))
         pygame.display.update()
         return rectangle
     def moveSnake(self, changeX, changeY):
