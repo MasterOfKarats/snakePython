@@ -12,6 +12,9 @@ def getX():
     x=0
     return x
 
+def foo(x):
+    x+=1
+
 def getY():
     y=0
     return y
@@ -24,3 +27,9 @@ def check_Collision(startX, startY):
     if(x_pos < 0 or y_pos < 0 or x_pos > GameWidth or y_pos > GameHeight):
         y_pos = startX
         x_pos = startY
+
+def eatApple(score1):
+    global score
+    score=0
+    score += 1
+    print(score)
