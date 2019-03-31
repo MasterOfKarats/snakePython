@@ -6,7 +6,8 @@ pygame.init()
 
 pos = []
 score = 0
-speed = 10
+speedX = 10
+speedY = 10
 snakeHeight = 20
 snakeWidth = 20
 changeX = 0
@@ -39,17 +40,17 @@ class Game:
                 #moves the snake which is the red squarw
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_LEFT:
-                        changeX -= speed
+                        changeX -= speedX
                         changeY = 0
                     elif event.key == pygame.K_RIGHT:
-                        changeX += speed
+                        changeX += speedX
                         changeY = 0
                     elif event.key == pygame.K_UP:
                         changeX = 0
-                        changeY -= speed
+                        changeY -= speedY
                     elif event.key == pygame.K_DOWN:
                         changeX = 0
-                        changeY += speed
+                        changeY += speedY
                 #Moves snake and checks for collision
                 Snake.Snake.moveSnake(Snake, changeX, changeY)
                 Snake.Snake.check_Collision(Snake, x_pos , y_pos)
