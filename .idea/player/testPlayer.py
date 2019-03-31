@@ -1,5 +1,6 @@
 import unittest
 import tests
+import Snake, Apple
 
 class UnitTesting(unittest.TestCase):
 
